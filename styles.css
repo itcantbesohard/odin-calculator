@@ -24,16 +24,52 @@ header h2 {
 
 .calculator {
     background-color: #2d2e42;
-    width: 400px;
+    color: whitesmoke;
+    width: 280px;
     height: 500px;
     margin: 20px auto;
     padding: 20px;
     border-radius: 10px;
     display: flex;
+    flex-direction: column;
+}
+
+.display {
+    font-size: 36px;
+    font-weight: 400;
+    margin: 0 10px;
+    text-align: right;
+    white-space: nowrap;
+    overflow: auto;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+
 }
 
 .btn {
-    background-color: #2f2d42;
+    background-color: #2d2e42;
     color: whitesmoke;
-    box-shadow: 0 0 10px 5px #29283a;
+    box-shadow: 2px 0px 5px 3px #29283a;
+    width: 60px;
+    height: 60px;
+    border: none;
+    border-radius: 10px;
+    margin: 5px;
+    font-size: 16px;
+}
+
+.btn:hover {
+    cursor: pointer;
+    background-color: #3e3f53;
+}
+
+.btn-func {
+    color: aquamarine;
+}
+
+#calculate {
+    width: 130px;
 }
