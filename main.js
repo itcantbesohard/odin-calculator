@@ -1,6 +1,6 @@
 const numberOne = 0;
 const numberTwo = 0;
-let entered = [];
+const entered = [];
 const ops = "+-*/";
 
 const display = document.querySelector(`.display p`);
@@ -48,5 +48,5 @@ function clearAll() {
     display.textContent = 0;
     numberOne = 0;
     numberTwo = 0;
-    entered = [];
+    entered.length = 0;
 }
