@@ -30,12 +30,17 @@ export class Calculator {
     }
 
     updateDisplay() {
+        if (this.operator) {
+            this.displayEl.textContent = `${this.previous}${this.operator}`;
+            return;
+        }
         this.displayEl.textContent = this.current;
     }
 
     appendDigit(digit) {
-        if (this.current === 0) {
+        if (this.current === 0 || this.overwrite === true) {
             this.current = digit;
+            this.overwrite = false;
             return;
         }
         this.current += digit;
@@ -48,8 +53,6 @@ export class Calculator {
     }
 
     operate(a, b, operator) {
-
-        if (Number.isNaN(a) || Number.isNaN(b)) return "Error";
 
         a = Number(a);
         b = Number(b);
