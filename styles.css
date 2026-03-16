@@ -83,10 +83,11 @@ header h2 {
 
 footer p {
     text-align: center;
-    font-size: 16px;
+    font-size: 14px;
     margin: 0;
     padding: 8px;
     text-transform: uppercase;
+    letter-spacing: 1px;
     position: fixed;
     bottom: 0;
     left: 0;
