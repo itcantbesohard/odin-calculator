@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="main.js" defer></script>
+    <script src="main.js" defer type="module"></script>
     <link rel="stylesheet" type="text/css" href="styles.css">
     <title>Calculator Online</title>
 </head>
@@ -20,25 +20,25 @@
             <p>0123456789.89</p>
         </div>
         <div class="buttons">
-            <button class="btn btn-func" id="AC">AC</button>
-            <button class="btn btn-func" id="CE">CE</button>
-            <button class="btn btn-func btn-operate" id="dot">.</button>
-            <button class="btn btn-func btn-operate" id="divide">/</button>
-            <button class="btn" id="7">7</button>
-            <button class="btn" id="8">8</button>
-            <button class="btn" id="9">9</button>
-            <button class="btn btn-func btn-operate" id="multiple">*</button>
-            <button class="btn" id="4">4</button>
-            <button class="btn" id="5">5</button>
-            <button class="btn" id="6">6</button>
-            <button class="btn btn-func btn-operate" id="subtract">-</button>
-            <button class="btn" id="1">1</button>
-            <button class="btn" id="2">2</button>
-            <button class="btn" id="3">3</button>
-            <button class="btn btn-func btn-operate" id="add">+</button>
-            <button class="btn" id="percent">%</button>
-            <button class="btn" id="0">0</button>
-            <button class="btn btn-func btn-operate" id="calculate">=</button>
+            <button class="btn btn-func" data-action="AC">AC</button>
+            <button class="btn btn-func" data-action="CE">CE</button>
+            <button class="btn btn-func" data-action="decimal">.</button>
+            <button class="btn btn-func" data-operator="divide">/</button>
+            <button class="btn" data-number="7">7</button>
+            <button class="btn" data-number="8">8</button>
+            <button class="btn" data-number="9">9</button>
+            <button class="btn btn-func" data-operator="multiple">*</button>
+            <button class="btn" data-number="4">4</button>
+            <button class="btn" data-number="5">5</button>
+            <button class="btn" data-number="6">6</button>
+            <button class="btn btn-func" data-operator="subtract">-</button>
+            <button class="btn" data-number="1">1</button>
+            <button class="btn" data-number="2">2</button>
+            <button class="btn" data-number="3">3</button>
+            <button class="btn btn-func" data-operator="add">+</button>
+            <button class="btn" data-action="percent">%</button>
+            <button class="btn" data-number="0">0</button>
+            <button class="btn btn-func" data-action="equals" id="equals">=</button>
         </div>
 
     </div>
