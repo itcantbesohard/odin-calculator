@@ -87,11 +87,11 @@ export class Calculator {
         if (!this.operator && !this.previous) return;
         if (this.overwrite) return;
 
-        const result = this.operate(calc.previous, calc.current, calc.operator);
-        calc.current = String(result);
-        calc.overwrite = true;
-        calc.operator = null;
-        calc.previous = null;
+        const result = this.operate(this.previous, this.current, this.operator);
+        this.current = String(result);
+        this.overwrite = true;
+        this.operator = null;
+        this.previous = null;
     }
 
     operate(a, b, operator) {
