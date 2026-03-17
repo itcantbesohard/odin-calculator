@@ -34,14 +34,11 @@ buttons.addEventListener("click", (e) => {
     }
 
     if (btn.dataset.operator) {
-        if (calc.previous && calc.operator) {
-            calc.previous = calc.operate(calc.previous, calc.current, calc.operator);
-        }
-        if (!calc.previous) calc.previous = calc.current;
-        calc.operator = btn.textContent;
+        calc.applyOperator(btn.textContent);
         calc.updateDisplay();
-        calc.current = calc.previous;
         return;
     }
+
+
 
 });

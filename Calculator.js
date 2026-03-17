@@ -30,7 +30,7 @@ export class Calculator {
     }
 
     updateDisplay() {
-        if (this.operator) {
+        if (this.operator && this.overwrite) {
             this.displayEl.textContent = `${this.previous}${this.operator}`;
             return;
         }
@@ -50,6 +50,31 @@ export class Calculator {
         const str = String(this.current);
         if (str.includes(".")) return;
         this.current += ".";
+    }
+
+    applyOperator(op) {
+
+        // if change operator
+        if (this.operator && this.overwrite) {
+            this.operator = op;
+            return;
+        }
+
+        // if first time
+        if (!this.operator && !this.previous && !this.overwrite) {
+            this.previous = this.current;
+            this.operator = op;
+            this.overwrite = true;
+        }
+
+        // after second digit
+        if (this.operator && this.current && this.previous && !this.overwrite) {
+            console.log(this.previous, this.current, this.operator)
+            const result = this.operate(this.previous, this.current, this.operator);
+            this.previous = String(result);
+            this.operator = op;
+            this.overwrite = true;
+        }
     }
 
     operate(a, b, operator) {
