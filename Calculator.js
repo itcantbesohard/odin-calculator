@@ -96,8 +96,6 @@ export class Calculator {
 
     operate(a, b, operator) {
 
-        console.log(a, b, operator, this.previous, this.current, this.overwrite)
-
         a = Number(a);
         b = Number(b);
 

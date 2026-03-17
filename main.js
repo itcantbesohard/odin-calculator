@@ -39,5 +39,4 @@ buttons.addEventListener("click", (e) => {
 
     calc.updateDisplay();
     return;
-
 });
