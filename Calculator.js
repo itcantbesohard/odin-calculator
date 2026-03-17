@@ -69,15 +69,34 @@ export class Calculator {
 
         // after second digit
         if (this.operator && this.current && this.previous && !this.overwrite) {
-            console.log(this.previous, this.current, this.operator)
             const result = this.operate(this.previous, this.current, this.operator);
             this.previous = String(result);
             this.operator = op;
             this.overwrite = true;
         }
+
+        //after equals
+        if (!this.operator && !this.previous && this.overwrite) {
+            this.previous = this.current;
+            this.operator = op;
+            return;
+        }
+    }
+
+    equals() {
+        if (!this.operator && !this.previous) return;
+        if (this.overwrite) return;
+
+        const result = this.operate(calc.previous, calc.current, calc.operator);
+        calc.current = String(result);
+        calc.overwrite = true;
+        calc.operator = null;
+        calc.previous = null;
     }
 
     operate(a, b, operator) {
+
+        console.log(a, b, operator, this.previous, this.current, this.overwrite)
 
         a = Number(a);
         b = Number(b);
