@@ -50,37 +50,70 @@ export class Calculator {
         const str = String(this.current);
         if (str.includes(".")) return;
         this.current += ".";
+        this.overwrite = false;
+        console.log(this.current, this.overwrite);
     }
 
     applyOperator(op) {
 
-        // if change operator
-        if (this.operator && this.overwrite) {
-            this.operator = op;
+        // minus at start
+        if (op === "-" && this.previous === null && this.current === 0 && this.overwrite) {
+            this.current = "-";
+            this.overwrite = false;
+            return;
+        }
+
+        // minus after operator
+        if (op === "-" && this.operator && this.overwrite) {
+            this.current = "-";
+            this.overwrite = false;
             return;
         }
 
         // if first time
-        if (!this.operator && !this.previous && !this.overwrite) {
+        if (!this.operator) {
             this.previous = this.current;
             this.operator = op;
             this.overwrite = true;
+            return;
         }
 
-        // after second digit
-        if (this.operator && this.current && this.previous && !this.overwrite) {
-            const result = this.operate(this.previous, this.current, this.operator);
-            this.previous = String(result);
-            this.operator = op;
-            this.overwrite = true;
-        }
-
-        //after equals
-        if (!this.operator && !this.previous && this.overwrite) {
-            this.previous = this.current;
+        // if change operator
+        if (this.overwrite) {
             this.operator = op;
             return;
         }
+
+        // after second digit or equals
+        const result = this.operate(this.previous, this.current, this.operator);
+        this.previous = String(result);
+        this.operator = op;
+        this.overwrite = true;
+    }
+
+    percent() {
+
+        const b = Number(this.current);
+
+        // % without operator 
+        if (!this.operator || this.previous === null) {
+            this.current = String(b / 100);
+            this.overwrite = false;
+            return;
+        }
+
+        const a = Number(this.previous);
+
+        let result;
+
+        if (this.operator === "+" || this.operator === "-") {
+            result = a * (b / 100);
+        } else {
+            result = b / 100;
+        }
+
+        this.current = String(result);
+        this.overwrite = false;
     }
 
     equals() {

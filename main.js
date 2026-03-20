@@ -25,6 +25,10 @@ buttons.addEventListener("click", (e) => {
         calc.addDecimal();
     }
 
+    if (btn.dataset.action === "percent") {
+        calc.percent();
+    }
+
     if (btn.dataset.operator) {
         calc.applyOperator(btn.textContent);
     }
@@ -32,10 +36,6 @@ buttons.addEventListener("click", (e) => {
     if (btn.dataset.action === "equals") {
         calc.equals();
     }
-
-    //TODO:
-    //case decimal
-    //case %
 
     calc.updateDisplay();
     return;
